@@ -32,19 +32,36 @@ api.use((req, res, next) => {
 
 api.get('/api/data/piechart', (req, res) => {
     res.json({
-        msg: 'hello world'
+        data: [1, 2, 3, 4, 5].map((x) => {
+            return {
+                name: `Section ${x}`,
+                value: Math.floor((Math.random() * 100) + 1)
+            }
+        })
+
     })
 });
 
 api.get('/api/data/barchart', (req, res) => {
     res.json({
-        msg: 'hello world'
+        data: [1, 2, 3, 4, 5].map((x) => {
+            return {
+                name: `Section ${x}`,
+                value: Math.floor((Math.random() * 100) + 1)
+            }
+        })
+
     })
 });
 
 api.get('/api/data/linechart', (req, res) => {
     res.json({
-        msg: 'hello world'
+        data: [1, 2, 3, 4, 5, 6, 7].map((x) => {
+            return {
+                date: new Date(2016, 4, x),
+                value: Math.floor((Math.random() * 10) + 1)
+            }
+        })
     })
 });
 
