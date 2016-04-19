@@ -13,7 +13,7 @@ let password = Math.random().toString(36).replace(/[^a-z]+/g, '').substr(0, 7);
 api.use((req, res, next) => {
     let auth = req.header('Authorization');
 
-    if(auth.indexOf('Basic') != 0) {
+    if(!auth || auth.indexOf('Basic') != 0) {
         res.status(401).send('Unauthorized')
     } else {
         let credentials = Base64.decode(auth.substr(5)).split(':');
