@@ -16,7 +16,7 @@ api.use((req, res, next) => {
     if(!auth || auth.indexOf('Basic') != 0) {
         res.status(401).send('Unauthorized')
     } else {
-        let credentials = Base64.decode(auth.substr(5)).split(':');
+        let credentials = new Buffer(auth.substr(5), 'base64').toString().split(':');
 
         if(credentials.length == 2) {
             if(credentials[0] === user && credentials[1] === password) {
